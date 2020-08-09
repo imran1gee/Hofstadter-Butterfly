@@ -140,6 +140,7 @@ Block[{getEv},
   getEv[\[Alpha]] = Sort@Eigenvalues[b[\[Alpha]]];
  getEv[\[Alpha]_?NumericQ, n1_] := getEv[\[Alpha]][[n1]];
  DiscretePlot[
-  Evaluate@Table[getEv[\[Alpha], n1], {n1, 4*s}], {\[Alpha], 0, 1, 
-   0.01}, Filling -> None, Joined -> False, 
-  PlotStyle -> PointSize[0.005]]]
+  Evaluate@{Table[getEv[\[Alpha], n1 - (s + 1)], {n1, s}], 
+    Table[getEv[\[Alpha], n1], {n1, 1*s}]}, {\[Alpha], 0, 1, 0.01}, 
+  Filling -> None, Joined -> False, PlotStyle -> PointSize[0.005]]]
+
